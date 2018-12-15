@@ -27,5 +27,36 @@
         </div>
     </div>
 
+    <div th:fragment="display_search">
+        <h3>
+            <span th:text="${jobs.size()}" th:remove="tag">title</span>
+            <normal th:text="Results" >Results</normal>
+        </h3>
+        <div th:if="${jobs} and ${jobs.size()}">
+            <tr th:each="job, idx : ${jobs}" >
+                <table class="job-listing">
+                    <td>Position Type</td>
+                    <td th:text="${job.position_type}"></td>
+                    <tr>
+                        <td>Name</td>
+                        <td th:text="${job.name}"></td>
+                    </tr>
+                    <tr>
+                        <td>Employer</td>
+                        <td th:text="${job.employer}"></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td th:text="${job.location}"></td>
+                    </tr>
+                    <tr>
+                        <td>Core Competency</td>
+                        <td th:text="${job.core_competency}"></td>
+                    </tr>
+
+                </table>
+            </tr>
+        </div>
+    </div>
 </body>
 </html>
